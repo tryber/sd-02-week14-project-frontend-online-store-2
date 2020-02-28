@@ -24,11 +24,12 @@ class ItemBusca extends Component {
   }
 
   botaoSalvaItem(list) {
+    const { callbackCarrinho } = this.props;
     return (
       <button
         className="itemBotaoAdd"
         type="button"
-        onClick={() => this.props.callbackCarrinho(list)}
+        onClick={() => callbackCarrinho(list)}
       >
         Adicionar ao Carrinho
       </button>
@@ -36,10 +37,11 @@ class ItemBusca extends Component {
   }
 
   render() {
+    const { listagem } = this.props;
     return (
       <div>
         <div className="containerBusca">
-          {this.props.listagem.map((list) => (
+          {listagem.map((list) => (
             <div className="itemBusca" key={list.id}>
               <div className="itemTitulo">
                 {ItemBusca.linkETitle(list)}
